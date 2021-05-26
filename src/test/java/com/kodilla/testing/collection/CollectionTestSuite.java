@@ -42,26 +42,31 @@ public class CollectionTestSuite {
 
     }
 
-    @DisplayName( "When method exterminate with generate numbers method should return ArrayList with even numbers")
+    @DisplayName( "When method exterminate with sample Array of numbers, method should return ArrayList with even numbers")
     @Test
     void testOddNumberExterminatorNormalList(){
-        List<Integer> listaPusta = new ArrayList<>();
-        Random generator = new Random();
-        for(int i=0; i<1000;i++){
-            listaPusta.add(generator.nextInt(99));
-        }
+        List<Integer> listaLiczb = new ArrayList<>();
+
+        listaLiczb.add(10);
+        listaLiczb.add(9);
+        listaLiczb.add(6);
+        listaLiczb.add(5);
+        listaLiczb.add(3);
+
+        List<Integer>listaLiczbParzystych = new ArrayList<>();
+        listaLiczbParzystych.add(10);
+        listaLiczbParzystych.add(6);
+
         //Given
         OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
         //When
-        List<Integer> result=oddNumbersExterminator.exterminate(listaPusta);
+        List<Integer> result=oddNumbersExterminator.exterminate(listaLiczbParzystych);
+        System.out.println(result);
+        System.out.println(listaLiczbParzystych);
+        boolean zmienna=listaLiczbParzystych.equals(result);
         //Then
-        boolean zmienna=true;
-        for(int i =0;i<result.size();i++){
-            if(result.get(i)%2!=0)
-                zmienna =false;
-            return;
-        }
         Assertions.assertTrue(zmienna);
+
 
     }
 }
